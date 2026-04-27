@@ -41,16 +41,12 @@ def analisis_kode(kode):
         for cocok in TOKEN_REGEX.finditer(isi_baris):
             token = cocok.group()
             jenis = cocok.lastgroup
-
             if jenis == "RESERVED":
                 tambah_token(hasil, "Reserve Words", token, nomor_baris)
-
             elif jenis == "OPERATOR" or jenis == "PUNCTUATION":
                 tambah_token(hasil, "Simbol dan Tanda Baca", token, nomor_baris)
-
             elif jenis == "VARIABLE":
                 tambah_token(hasil, "Variabel", token, nomor_baris)
-
             elif jenis == "NUMBER":
                 tambah_token(hasil, "Angka", token, nomor_baris)
 
@@ -60,7 +56,6 @@ def analisis_kode(kode):
                 "token": baris_bersih,
                 "baris": nomor_baris
             })
-
     return hasil
 
 def tampilkan_hasil(hasil):
@@ -77,7 +72,6 @@ def tampilkan_hasil(hasil):
         else:
             for item in daftar:
                 print(f"Baris {item['baris']:>2} | {item['token']}")
-
         print(f"Total {kategori}: {len(daftar)}")
 
 print("===================================")
@@ -93,7 +87,6 @@ while True:
     if baris.upper() == "SELESAI":
         break
     kode_input.append(baris)
-
 kode = "\n".join(kode_input)
 
 if kode.strip() == "":
