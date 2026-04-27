@@ -22,13 +22,11 @@ TOKEN_REGEX = re.compile(
 
 MATH_REGEX = re.compile(r"(=|\+|-|\*|/|%|<|>|<=|>=|==|!=)")
 
-
 def tambah_token(hasil, kategori, token, baris):
     hasil[kategori].append({
         "token": token,
         "baris": baris
     })
-
 
 def analisis_kode(kode):
     hasil = {
@@ -65,7 +63,6 @@ def analisis_kode(kode):
 
     return hasil
 
-
 def tampilkan_hasil(hasil):
     print("\n===================================")
     print(" HASIL ANALISIS TOKEN")
@@ -82,7 +79,6 @@ def tampilkan_hasil(hasil):
                 print(f"Baris {item['baris']:>2} | {item['token']}")
 
         print(f"Total {kategori}: {len(daftar)}")
-
 
 print("===================================")
 print(" PROGRAM ANALISIS TOKEN SEDERHANA")
